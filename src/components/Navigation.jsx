@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Menu, Sun, Moon } from 'lucide-react'
-import { useSoundContext, useTheme } from '../App.jsx'
+import { useTheme } from '../App.jsx'
 
 const navLinks = [
   { label: 'WORK', to: '/work' },
@@ -15,7 +15,6 @@ const navLinks = [
 
 export default function Navigation() {
   const location = useLocation()
-  const { soundEnabled, setSoundEnabled } = useSoundContext()
   const { theme, toggleTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -72,7 +71,7 @@ export default function Navigation() {
           ))}
         </nav>
 
-        {/* Right controls: Theme Toggle + Sound Toggle + Mobile Menu */}
+        {/* Right controls: Theme Toggle + Mobile Menu */}
         <div className="flex items-center gap-3 md:gap-4">
           {/* Theme Toggle Button */}
           <button
@@ -86,20 +85,6 @@ export default function Navigation() {
             ) : (
               <Moon size={17} strokeWidth={2.2} className="text-black" />
             )}
-          </button>
-
-          {/* Sound Toggle */}
-          <button
-            className="font-luckiest text-xs md:text-sm tracking-wider hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-black dark:text-white transition-all duration-200 cursor-pointer"
-            onClick={() => setSoundEnabled(!soundEnabled)}
-            aria-label={soundEnabled ? 'Disable sound' : 'Enable sound'}
-          >
-            <span
-              className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                soundEnabled ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-stone/50'
-              }`}
-            />
-            {soundEnabled ? 'SOUND ON' : 'SOUND OFF'}
           </button>
 
           {/* Mobile menu hamburger button */}
@@ -154,21 +139,8 @@ export default function Navigation() {
 
             <div className="mt-10 flex items-center gap-4">
               <button
-                className="font-luckiest text-sm tracking-wider flex items-center gap-2 text-black dark:text-white px-3 py-1.5 rounded-full border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5"
-                onClick={() => setSoundEnabled(!soundEnabled)}
-                aria-label={soundEnabled ? 'Disable sound' : 'Enable sound'}
-              >
-                <span
-                  className={`w-2.5 h-2.5 rounded-full ${
-                    soundEnabled ? 'bg-emerald-500' : 'bg-stone/50'
-                  }`}
-                />
-                {soundEnabled ? 'SOUND ON' : 'SOUND OFF'}
-              </button>
-
-              <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-black dark:text-white flex items-center gap-2 font-luckiest text-xs"
+                className="p-2 rounded-full border border-black/10 dark:border-white/15 bg-black/5 dark:bg-white/5 text-black dark:text-white flex items-center gap-2 font-luckiest text-xs cursor-pointer"
               >
                 {theme === 'dark' ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} />}
                 <span>{theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}</span>
