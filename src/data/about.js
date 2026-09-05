@@ -8,7 +8,7 @@ export const about = {
   philosophyStatement: 'I am interested in the space between what is seen and what is felt.',
   primaryStatement: 'I create music, sounds, and stories.',
 
-  portrait: 'Pictures/IMG_6483.jpg',
+  portrait: '../Pictures/IMG_6483.jpg',
 
   biography: [
     'Bishwas Gaire is a multidisciplinary artist based in Kathmandu. He works across painting, music, photography, and cinematography — not as separate practices, but as different languages spoken by the same person.',
