@@ -90,9 +90,9 @@ export default function MusicProject() {
                 Liner Notes
               </p>
               <div className="space-y-2 font-sans text-[11px] text-stone">
-                <p><span className="text-ash uppercase tracking-wider">Format:</span> Digital & Field Master</p>
-                <p><span className="text-ash uppercase tracking-wider">Year:</span> {project.year}</p>
-                <p><span className="text-ash uppercase tracking-wider">Composer:</span> Bishwas Gaire</p>
+                <p><span className="text-smoke dark:text-stone uppercase tracking-wider">Format:</span> Digital & Field Master</p>
+                <p><span className="text-smoke dark:text-stone uppercase tracking-wider">Year:</span> {project.year}</p>
+                <p><span className="text-smoke dark:text-stone uppercase tracking-wider">Composer:</span> Bishwas Gaire</p>
               </div>
             </div>
 
@@ -126,7 +126,7 @@ export default function MusicProject() {
                     <h3 className="font-serif text-lg text-offwhite group-hover:text-warm-white transition-colors duration-300">
                       {other.title}
                     </h3>
-                    <p className="font-sans text-[10px] text-ash tracking-widest uppercase mt-3">
+                    <p className="font-sans text-[10px] text-smoke dark:text-stone tracking-widest uppercase mt-3">
                       {other.tracks.length} tracks →
                     </p>
                   </Link>

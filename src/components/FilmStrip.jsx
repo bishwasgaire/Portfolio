@@ -30,10 +30,10 @@ export default function FilmStrip({ images = [], title }) {
             </div>
             {/* Frame number */}
             <div className="bg-void px-3 py-1 flex justify-between items-center">
-              <span className="font-mono text-[8px] tracking-[0.15em] text-ash">
+              <span className="font-mono text-[8px] tracking-[0.15em] text-smoke dark:text-stone">
                 {String(i + 1).padStart(3, '0')}
               </span>
-              <span className="font-mono text-[8px] tracking-[0.08em] text-ash">◼◼◼</span>
+              <span className="font-mono text-[8px] tracking-[0.08em] text-smoke dark:text-stone">◼◼◼</span>
             </div>
           </div>
         ))}

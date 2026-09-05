@@ -144,7 +144,7 @@ export default function CinematicHero({
           {/* Title */}
           {title && (
             <motion.h1
-              className="font-changa text-black leading-none tracking-wide mb-4 uppercase"
+              className="font-changa text-black dark:text-white leading-none tracking-wide mb-4 uppercase"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}

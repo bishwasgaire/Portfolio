@@ -8,24 +8,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Core palette — GitHub Light white theme
-        'void': '#ffffff',
-        'void-light': '#f6f8fa',
-        'charcoal': '#f6f8fa',
-        'ash': '#d0d7de',
-        'smoke': '#555555',
-        'stone': '#222222',
-        'parchment': '#111111',
-        'cream': '#000000',
-        'offwhite': '#000000',
-        'warm-white': '#000000',
-        // Accent tones (GitHub Light)
-        'earth': '#0969da',
-        'rust': '#cf222e',
-        'deep-red': '#a40e26',
-        'muted-blue': '#0969da',
-        'sage': '#1a7f37',
-        'umber': '#9a6700',
+        // Dynamic theme palette backed by CSS variables
+        'void': 'var(--color-void)',
+        'void-light': 'var(--color-void-light)',
+        'charcoal': 'var(--color-charcoal)',
+        'ash': 'var(--color-ash)',
+        'smoke': 'var(--color-smoke)',
+        'stone': 'var(--color-stone)',
+        'parchment': 'var(--color-parchment)',
+        'cream': 'var(--color-cream)',
+        'offwhite': 'var(--color-offwhite)',
+        'warm-white': 'var(--color-warm-white)',
+        // Accent tones
+        'earth': 'var(--color-earth)',
+        'rust': 'var(--color-rust)',
+        'deep-red': 'var(--color-deep-red)',
+        'muted-blue': 'var(--color-muted-blue)',
+        'sage': 'var(--color-sage)',
+        'umber': 'var(--color-umber)',
       },
       fontFamily: {
         'changa': ['"Changa One"', 'cursive', 'sans-serif'],

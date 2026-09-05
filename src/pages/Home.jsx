@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { artworks } from '../data/artworks.js'
 import { musicProjects } from '../data/music.js'
 import { films } from '../data/films.js'
-import { journalEntries } from '../data/journal.js'
 import PageTransition from '../components/PageTransition.jsx'
 import Footer from '../components/Footer.jsx'
 
@@ -17,7 +16,7 @@ function PaintingSection() {
       <div className="flex items-end justify-between mb-12">
         <div>
           <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone mb-3">01</p>
-          <h2 className="font-changa text-black text-4xl md:text-5xl uppercase tracking-wide leading-none">
+          <h2 className="font-changa text-black dark:text-white text-4xl md:text-5xl uppercase tracking-wide leading-none">
             Painting
           </h2>
         </div>
@@ -70,7 +69,7 @@ function PhotographySection() {
       <div className="flex items-end justify-between mb-12">
         <div>
           <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone mb-3">02</p>
-          <h2 className="font-changa text-black text-4xl md:text-5xl uppercase tracking-wide leading-none">
+          <h2 className="font-changa text-black dark:text-white text-4xl md:text-5xl uppercase tracking-wide leading-none">
             Photography
           </h2>
         </div>
@@ -138,7 +137,7 @@ function MusicSection() {
       <div className="flex items-end justify-between mb-12">
         <div>
           <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone mb-3">03</p>
-          <h2 className="font-changa text-black text-4xl md:text-5xl uppercase tracking-wide leading-none">
+          <h2 className="font-changa text-black dark:text-white text-4xl md:text-5xl uppercase tracking-wide leading-none">
             Music
           </h2>
         </div>
@@ -176,13 +175,13 @@ function MusicSection() {
             <div className="space-y-2">
               {album.tracks.slice(0, 3).map((track) => (
                 <div key={track.id} className="flex items-center gap-4">
-                  <span className="font-mono text-[10px] text-ash">{String(track.number).padStart(2, '0')}</span>
+                  <span className="font-mono text-[10px] text-smoke dark:text-stone">{String(track.number).padStart(2, '0')}</span>
                   <span className="font-sans text-[12px] text-stone tracking-[0.06em]">{track.title}</span>
-                  {track.duration && <span className="font-mono text-[10px] text-ash">{track.duration}</span>}
+                  {track.duration && <span className="font-mono text-[10px] text-smoke dark:text-stone">{track.duration}</span>}
                 </div>
               ))}
               {album.tracks.length > 3 && (
-                <p className="font-sans text-[10px] tracking-[0.15em] uppercase text-ash pt-1">+ {album.tracks.length - 3} more</p>
+                <p className="font-sans text-[10px] tracking-[0.15em] uppercase text-smoke dark:text-stone pt-1">+ {album.tracks.length - 3} more</p>
               )}
             </div>
 
@@ -208,15 +207,15 @@ function FilmSection() {
       <div className="px-6 md:px-12 flex items-end justify-between mb-12">
         <div>
           <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone mb-3">04</p>
-          <h2 className="font-changa text-black text-4xl md:text-5xl uppercase tracking-wide leading-none">
-            Film
+          <h2 className="font-changa text-black dark:text-white text-4xl md:text-5xl uppercase tracking-wide leading-none">
+            Music Videos
           </h2>
         </div>
         <Link
-          to="/films"
+          to="/music-videos"
           className="font-sans text-[10px] tracking-[0.18em] uppercase text-stone hover:text-offwhite transition-colors duration-300 pb-1 border-b border-ash hover:border-stone"
         >
-          All Films →
+          All Music Videos →
         </Link>
       </div>
 
@@ -254,51 +253,6 @@ function FilmSection() {
           </Link>
         </motion.div>
       )}
-    </section>
-  )
-}
-
-// ── Journal snippet ──────────────────────────────────────────────
-function JournalSection() {
-  const recent = journalEntries.slice(0, 2)
-
-  return (
-    <section className="px-6 md:px-12 py-24 md:py-32">
-      <div className="flex items-end justify-between mb-12">
-        <div>
-          <p className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone mb-3">05</p>
-          <h2 className="font-changa text-black text-4xl md:text-5xl uppercase tracking-wide leading-none">
-            Journal
-          </h2>
-        </div>
-        <Link
-          to="/journal"
-          className="font-sans text-[10px] tracking-[0.18em] uppercase text-stone hover:text-offwhite transition-colors duration-300 pb-1 border-b border-ash hover:border-stone"
-        >
-          All Entries →
-        </Link>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-        {recent.map((entry, i) => (
-          <motion.div
-            key={entry.id}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: i * 0.15 }}
-          >
-            <p className="journal-date mb-3">{entry.date}</p>
-            <h3 className="font-serif font-light text-offwhite text-xl mb-3">{entry.title}</h3>
-            <p className="font-serif italic text-stone text-base leading-relaxed">{entry.text.substring(0, 140)}…</p>
-            {entry.images?.[0] && (
-              <div className="mt-5 aspect-[4/3] bg-charcoal overflow-hidden">
-                <img src={entry.images[0]} alt={entry.title} className="w-full h-full object-cover opacity-80" loading="lazy" />
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </div>
     </section>
   )
 }
@@ -361,7 +315,7 @@ function OpeningScene({ onEnter }) {
               </motion.p>
 
               <motion.h1
-                className="font-changa text-black leading-none tracking-tight mb-6 uppercase"
+                className="font-changa text-black dark:text-white leading-none tracking-tight mb-6 uppercase"
                 style={{ fontSize: 'clamp(3.5rem, 10vw, 9rem)' }}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -499,7 +453,7 @@ export default function Home() {
                 </motion.p>
 
                 <motion.h1
-                  className="font-changa text-black leading-[0.92] tracking-tight mb-6 uppercase"
+                  className="font-changa text-black dark:text-white leading-[0.92] tracking-tight mb-6 uppercase"
                   style={{ fontSize: 'clamp(4rem, 10vw, 9rem)' }}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -548,16 +502,8 @@ export default function Home() {
               <div className="scene-divider" />
             </div>
 
-            {/* Film */}
+            {/* Music Videos */}
             <FilmSection />
-
-            {/* Scene divider */}
-            <div className="py-8 flex justify-center" aria-hidden="true">
-              <div className="scene-divider" />
-            </div>
-
-            {/* Journal */}
-            <JournalSection />
 
             {/* About teaser */}
             <section className="px-6 md:px-12 py-24 md:py-32 border-t border-ash">

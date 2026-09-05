@@ -10,11 +10,11 @@ export default function Footer() {
         <div>
           <Link
             to="/"
-            className="font-sans text-[10px] font-medium tracking-[0.25em] uppercase text-stone hover:text-offwhite transition-colors duration-300"
+            className="font-sans text-[10px] font-medium tracking-[0.25em] uppercase text-stone hover:text-offwhite dark:text-parchment dark:hover:text-white transition-colors duration-300"
           >
             BISHWAS GAIRE
           </Link>
-          <p className="font-sans text-[9px] tracking-[0.18em] uppercase text-ash mt-1">
+          <p className="font-sans text-[9px] tracking-[0.18em] uppercase text-smoke dark:text-stone mt-1">
             Artist · Musician · Filmmaker
           </p>
         </div>
@@ -24,15 +24,14 @@ export default function Footer() {
           {[
             { label: 'Work', to: '/work' },
             { label: 'Music', to: '/music' },
-            { label: 'Films', to: '/films' },
-            { label: 'Journal', to: '/journal' },
+            { label: 'Music Videos', to: '/music-videos' },
             { label: 'About', to: '/about' },
             { label: 'Contact', to: '/contact' },
           ].map(link => (
             <Link
               key={link.to}
               to={link.to}
-              className="font-sans text-[9px] tracking-[0.18em] uppercase text-ash hover:text-stone transition-colors duration-300"
+              className="font-sans text-[9px] tracking-[0.18em] uppercase text-smoke hover:text-stone dark:text-stone dark:hover:text-white transition-colors duration-300"
             >
               {link.label}
             </Link>
@@ -40,7 +39,7 @@ export default function Footer() {
         </nav>
 
         {/* Copyright */}
-        <p className="font-sans text-[9px] tracking-[0.12em] text-ash">
+        <p className="font-sans text-[9px] tracking-[0.12em] text-smoke dark:text-stone">
           © {year} Bishwas Gaire
         </p>
       </div>

@@ -86,7 +86,7 @@ export default function JournalEntry({ entry, index = 0 }) {
           {tags.map(tag => (
             <span
               key={tag}
-              className="font-sans text-[9px] tracking-[0.2em] uppercase text-ash border border-ash px-3 py-1"
+              className="font-sans text-[9px] tracking-[0.2em] uppercase text-smoke dark:text-stone border border-ash px-3 py-1"
             >
               {tag}
             </span>

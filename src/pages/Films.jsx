@@ -8,7 +8,7 @@ export default function Films() {
   const [activeCategory, setActiveCategory] = useState('ALL')
 
   useEffect(() => {
-    document.title = 'Films — Bishwas Gaire'
+    document.title = 'Music Videos — Bishwas Gaire'
   }, [])
 
   const filteredFilms = getFilmsByCategory(activeCategory)
@@ -24,16 +24,16 @@ export default function Films() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            Moving Image & Direction
+            Visual Direction & Music Videos
           </motion.p>
           <motion.h1
-            className="font-changa text-black leading-none tracking-wide mb-6 uppercase"
+            className="font-changa text-black dark:text-white leading-none tracking-wide mb-6 uppercase"
             style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            FILMS
+            MUSIC VIDEOS
           </motion.h1>
           <motion.p
             className="font-serif italic text-stone text-lg max-w-lg leading-relaxed"
@@ -41,7 +41,7 @@ export default function Films() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Narrative shorts, visual studies, music films, and observational documentaries.
+            Official music videos, audiovisual stories, and visual direction.
           </motion.p>
         </div>
 

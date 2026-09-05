@@ -3,12 +3,12 @@ export const about = {
   name: 'Bishwas Gaire',
   primaryTitle: 'Artist · Musician · Filmmaker',
   disciplines: ['Artist', 'Musician', 'Cinematographer', 'Photographer'],
-  location: 'Kathmandu, Nepal',
+  location: 'Idaho, United States of America',
 
   philosophyStatement: 'I am interested in the space between what is seen and what is felt.',
-  primaryStatement: 'I create images, sounds, and stories.',
+  primaryStatement: 'I create music, sounds, and stories.',
 
-  portrait: '/images/about/portrait.jpg',
+  portrait: 'Pictures/IMG_6483.jpg',
 
   biography: [
     'Bishwas Gaire is a multidisciplinary artist based in Kathmandu. He works across painting, music, photography, and cinematography — not as separate practices, but as different languages spoken by the same person.',
@@ -38,7 +38,7 @@ export const about = {
   contact: {
     email: 'hello@bishwasgaire.com',
     instagram: 'https://instagram.com/bishwasgaire',
-    youtube: 'https://youtube.com/@bishwasgaire',
+    youtube: 'https://www.youtube.com/@bishwas_gaire',
     vimeo: 'https://vimeo.com/bishwasgaire',
     soundcloud: 'https://soundcloud.com/bishwasgaire',
     spotify: 'https://open.spotify.com/artist/bishwasgaire',

@@ -1,10 +1,33 @@
 import { useState, useRef } from 'react'
 import { Play, Pause, Maximize2 } from 'lucide-react'
 
+function getYouTubeId(url) {
+  if (!url) return null
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/)
+  return match ? match[1] : null
+}
+
 export default function FilmPlayer({ videoUrl, posterUrl, title }) {
   const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [showControls, setShowControls] = useState(false)
+
+  const ytId = getYouTubeId(videoUrl)
+
+  // If it's a YouTube video, render responsive iframe player
+  if (ytId) {
+    return (
+      <div className="relative w-full aspect-video bg-black overflow-hidden shadow-2xl border border-ash/40">
+        <iframe
+          src={`https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`}
+          title={title || 'Film Video'}
+          className="w-full h-full border-0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+    )
+  }
 
   const togglePlay = () => {
     if (!videoRef.current) return

@@ -71,7 +71,7 @@ export default function ProjectPage() {
             transition={{ duration: 0.8 }}
           >
             <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-stone">{category}</span>
-            <span className="text-ash">·</span>
+            <span className="text-smoke dark:text-stone">·</span>
             <span className="font-sans text-[9px] tracking-[0.2em] text-stone">{year}</span>
           </motion.div>
 
@@ -123,19 +123,19 @@ export default function ProjectPage() {
             <div className="flex flex-wrap gap-6 mb-12 pb-12 border-b border-ash">
               {camera && (
                 <div>
-                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-ash mb-1">Camera</p>
+                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-smoke dark:text-stone mb-1">Camera</p>
                   <p className="font-sans text-[12px] text-stone">{camera}</p>
                 </div>
               )}
               {lens && (
                 <div>
-                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-ash mb-1">Lens</p>
+                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-smoke dark:text-stone mb-1">Lens</p>
                   <p className="font-sans text-[12px] text-stone">{lens}</p>
                 </div>
               )}
               {location && (
                 <div>
-                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-ash mb-1">Location</p>
+                  <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-smoke dark:text-stone mb-1">Location</p>
                   <p className="font-sans text-[12px] text-stone">{location}</p>
                 </div>
               )}

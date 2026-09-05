@@ -7,8 +7,7 @@ import { useTheme } from '../App.jsx'
 const navLinks = [
   { label: 'WORK', to: '/work' },
   { label: 'MUSIC', to: '/music' },
-  { label: 'FILMS', to: '/films' },
-  { label: 'JOURNAL', to: '/journal' },
+  { label: 'MUSIC VIDEOS', to: '/music-videos' },
   { label: 'ABOUT', to: '/about' },
   { label: 'CONTACT', to: '/contact' },
 ]

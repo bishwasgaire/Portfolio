@@ -13,7 +13,6 @@ import Music from './pages/Music.jsx'
 import MusicProject from './pages/MusicProject.jsx'
 import Films from './pages/Films.jsx'
 import FilmProject from './pages/FilmProject.jsx'
-import Journal from './pages/Journal.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 
@@ -25,16 +24,6 @@ export const ThemeContext = createContext({
 
 export function useTheme() {
   return useContext(ThemeContext)
-}
-
-// ─── Sound Context ────────────────────────────────────────────
-export const SoundContext = createContext({
-  soundEnabled: false,
-  setSoundEnabled: () => {},
-})
-
-export function useSoundContext() {
-  return useContext(SoundContext)
 }
 
 // ─── Animated Routes ─────────────────────────────────────────
@@ -49,9 +38,10 @@ function AnimatedRoutes() {
         <Route path="/work/:projectId" element={<ProjectPage />} />
         <Route path="/music" element={<Music />} />
         <Route path="/music/:projectId" element={<MusicProject />} />
+        <Route path="/music-videos" element={<Films />} />
+        <Route path="/music-videos/:filmId" element={<FilmProject />} />
         <Route path="/films" element={<Films />} />
         <Route path="/films/:filmId" element={<FilmProject />} />
-        <Route path="/journal" element={<Journal />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
@@ -78,7 +68,6 @@ function AppShell() {
 
 // ─── App ─────────────────────────────────────────────────────
 export default function App() {
-  const [soundEnabled, setSoundEnabled] = useState(false)
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light'
   })
@@ -97,23 +86,11 @@ export default function App() {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
   }
 
-  // Persist sound preference
-  useEffect(() => {
-    const stored = sessionStorage.getItem('sound-enabled')
-    if (stored === 'true') setSoundEnabled(true)
-  }, [])
-
-  useEffect(() => {
-    sessionStorage.setItem('sound-enabled', soundEnabled.toString())
-  }, [soundEnabled])
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <SoundContext.Provider value={{ soundEnabled, setSoundEnabled }}>
-        <BrowserRouter>
-          <AppShell />
-        </BrowserRouter>
-      </SoundContext.Provider>
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
     </ThemeContext.Provider>
   )
 }

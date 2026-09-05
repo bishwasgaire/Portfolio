@@ -23,7 +23,7 @@ export default function Music() {
             Sound Archive
           </motion.p>
           <motion.h1
-            className="font-changa text-black leading-none tracking-wide mb-6 uppercase"
+            className="font-changa text-black dark:text-white leading-none tracking-wide mb-6 uppercase"
             style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export default function Music() {
                   <p className="font-sans text-[12px] text-stone leading-relaxed max-w-xl mb-4">
                     {project.description.substring(0, 120)}…
                   </p>
-                  <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-ash">
+                  <p className="font-sans text-[10px] tracking-[0.18em] uppercase text-smoke dark:text-stone">
                     {project.tracks.length} tracks
                   </p>
                 </div>
@@ -91,12 +91,12 @@ export default function Music() {
                 <div className="md:flex flex-col gap-2 hidden md:w-48 flex-shrink-0 justify-center">
                   {project.tracks.slice(0, 4).map(track => (
                     <div key={track.id} className="flex items-center gap-3">
-                      <span className="font-mono text-[9px] text-ash">{String(track.number).padStart(2, '0')}</span>
+                      <span className="font-mono text-[9px] text-smoke dark:text-stone">{String(track.number).padStart(2, '0')}</span>
                       <span className="font-sans text-[11px] text-stone truncate">{track.title}</span>
                     </div>
                   ))}
                   {project.tracks.length > 4 && (
-                    <p className="font-sans text-[9px] text-ash">+ {project.tracks.length - 4}</p>
+                    <p className="font-sans text-[9px] text-smoke dark:text-stone">+ {project.tracks.length - 4}</p>
                   )}
                 </div>
               </Link>

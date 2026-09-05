@@ -32,7 +32,7 @@ export default function Journal() {
             Visual Diary & Notes
           </motion.p>
           <motion.h1
-            className="font-changa text-black leading-none tracking-wide mb-6 uppercase"
+            className="font-changa text-black dark:text-white leading-none tracking-wide mb-6 uppercase"
             style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export default function Journal() {
         {/* Tag Filters */}
         <div className="px-6 md:px-12 mb-12">
           <div className="flex flex-wrap items-center gap-2 border-b border-ash/50 pb-6">
-            <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-ash mr-3">Filter:</span>
+            <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-smoke dark:text-stone mr-3">Filter:</span>
             {allTags.map(tag => (
               <button
                 key={tag}

@@ -25,7 +25,7 @@ export default function About() {
             Biography & Artist Statement
           </motion.p>
           <motion.h1
-            className="font-changa text-black leading-none tracking-wide mb-4 uppercase"
+            className="font-changa text-black dark:text-white leading-none tracking-wide mb-4 uppercase"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 6.5rem)' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function About() {
                 <img
                   src={about.portrait}
                   alt={about.name}
-                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover contrast-125 hover:grayscale-0 transition-all duration-700"
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-charcoal via-asphalt to-void flex items-center justify-center">
@@ -129,15 +129,15 @@ export default function About() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-[12px] text-stone">
                 <div>
                   <p className="font-serif text-offwhite text-sm mb-1">Painting</p>
-                  <p className="font-sans text-[11px] text-ash">Texture, tone, sensory silence, and tactile memory.</p>
+                  <p className="font-sans text-[11px] text-smoke dark:text-stone">Texture, tone, sensory silence, and tactile memory.</p>
                 </div>
                 <div>
                   <p className="font-serif text-offwhite text-sm mb-1">Sound</p>
-                  <p className="font-sans text-[11px] text-ash">Field recording, spatial resonance, nocturnal pianos.</p>
+                  <p className="font-sans text-[11px] text-smoke dark:text-stone">Field recording, spatial resonance, nocturnal pianos.</p>
                 </div>
                 <div>
                   <p className="font-serif text-offwhite text-sm mb-1">Cinema</p>
-                  <p className="font-sans text-[11px] text-ash">Observational pacing, natural light, human stillness.</p>
+                  <p className="font-sans text-[11px] text-smoke dark:text-stone">Observational pacing, natural light, human stillness.</p>
                 </div>
               </div>
             </div>

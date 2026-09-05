@@ -48,7 +48,7 @@ export default function Contact() {
             Inquiries & Transmissions
           </motion.p>
           <motion.h1
-            className="font-changa text-black leading-none tracking-wide mb-6 uppercase"
+            className="font-changa text-black dark:text-white leading-none tracking-wide mb-6 uppercase"
             style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

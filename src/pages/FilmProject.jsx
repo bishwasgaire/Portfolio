@@ -48,12 +48,12 @@ export default function FilmProject() {
             className="mb-8"
           >
             <Link
-              to="/films"
+              to="/music-videos"
               className="inline-flex items-center gap-2 font-sans text-[10px] tracking-[0.25em] uppercase text-stone hover:text-offwhite transition-colors duration-300 group"
               data-cursor="pointer"
             >
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform duration-300" />
-              <span>Back to Films</span>
+              <span>Back to Music Videos</span>
             </Link>
           </motion.div>
 
@@ -118,19 +118,19 @@ export default function FilmProject() {
                 </p>
                 <dl className="space-y-3 font-sans text-[11px]">
                   <div>
-                    <dt className="text-ash uppercase tracking-wider text-[9px]">Body</dt>
+                    <dt className="text-smoke dark:text-stone uppercase tracking-wider text-[9px]">Body</dt>
                     <dd className="text-stone mt-0.5">{film.camera?.body || 'Custom'}</dd>
                   </div>
                   <div>
-                    <dt className="text-ash uppercase tracking-wider text-[9px]">Lenses</dt>
+                    <dt className="text-smoke dark:text-stone uppercase tracking-wider text-[9px]">Lenses</dt>
                     <dd className="text-stone mt-0.5">{film.camera?.lens || 'Prime'}</dd>
                   </div>
                   <div>
-                    <dt className="text-ash uppercase tracking-wider text-[9px]">Capture Format</dt>
+                    <dt className="text-smoke dark:text-stone uppercase tracking-wider text-[9px]">Capture Format</dt>
                     <dd className="text-stone mt-0.5">{film.camera?.format || '4K 24fps'}</dd>
                   </div>
                   <div>
-                    <dt className="text-ash uppercase tracking-wider text-[9px]">Aspect Ratio</dt>
+                    <dt className="text-smoke dark:text-stone uppercase tracking-wider text-[9px]">Aspect Ratio</dt>
                     <dd className="text-stone mt-0.5 font-mono">{film.camera?.aspectRatio || '16:9'}</dd>
                   </div>
                 </dl>
@@ -177,10 +177,10 @@ export default function FilmProject() {
 
                 <div className="border-t border-ash/30 pt-4 space-y-2 font-sans text-[11px] text-stone">
                   {film.sound?.music && (
-                    <p><span className="text-ash uppercase tracking-wider text-[9px] block">Music:</span> {film.sound.music}</p>
+                    <p><span className="text-smoke dark:text-stone uppercase tracking-wider text-[9px] block">Music:</span> {film.sound.music}</p>
                   )}
                   {film.sound?.ambience && (
-                    <p><span className="text-ash uppercase tracking-wider text-[9px] block">Ambience:</span> {film.sound.ambience}</p>
+                    <p><span className="text-smoke dark:text-stone uppercase tracking-wider text-[9px] block">Ambience:</span> {film.sound.ambience}</p>
                   )}
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function FilmProject() {
                     Behind the Scenes & Process Stills
                   </h3>
                 </div>
-                <span className="font-sans text-[10px] tracking-[0.15em] uppercase text-ash hidden sm:inline-block">
+                <span className="font-sans text-[10px] tracking-[0.15em] uppercase text-smoke dark:text-stone hidden sm:inline-block">
                   Scroll horizontally →
                 </span>
               </div>
