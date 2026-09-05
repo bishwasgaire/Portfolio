@@ -4,7 +4,6 @@ import { useState, useEffect, createContext, useContext } from 'react'
 
 import Navigation from './components/Navigation.jsx'
 import GrainOverlay from './components/GrainOverlay.jsx'
-import CursorInteraction from './components/CursorInteraction.jsx'
 import Footer from './components/Footer.jsx'
 
 import Home from './pages/Home.jsx'
@@ -17,6 +16,16 @@ import FilmProject from './pages/FilmProject.jsx'
 import Journal from './pages/Journal.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+
+// ─── Theme Context ────────────────────────────────────────────
+export const ThemeContext = createContext({
+  theme: 'light',
+  toggleTheme: () => {},
+})
+
+export function useTheme() {
+  return useContext(ThemeContext)
+}
 
 // ─── Sound Context ────────────────────────────────────────────
 export const SoundContext = createContext({
@@ -58,7 +67,6 @@ function AppShell() {
   return (
     <>
       <GrainOverlay />
-      <CursorInteraction />
       <Navigation />
       <main>
         <AnimatedRoutes />
@@ -71,6 +79,23 @@ function AppShell() {
 // ─── App ─────────────────────────────────────────────────────
 export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(false)
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light'
+  })
+
+  // Synchronize theme with documentElement
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
+  }
 
   // Persist sound preference
   useEffect(() => {
@@ -83,10 +108,12 @@ export default function App() {
   }, [soundEnabled])
 
   return (
-    <SoundContext.Provider value={{ soundEnabled, setSoundEnabled }}>
-      <BrowserRouter>
-        <AppShell />
-      </BrowserRouter>
-    </SoundContext.Provider>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <SoundContext.Provider value={{ soundEnabled, setSoundEnabled }}>
+        <BrowserRouter>
+          <AppShell />
+        </BrowserRouter>
+      </SoundContext.Provider>
+    </ThemeContext.Provider>
   )
 }

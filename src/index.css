@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Luckiest+Guy&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,40 +8,73 @@
    CSS CUSTOM PROPERTIES — Cinematic Design Tokens
 ───────────────────────────────────────────────────────────── */
 :root {
-  /* Background hierarchy */
-  --color-void: #0a0908;
-  --color-void-light: #111110;
-  --color-charcoal: #1a1917;
-  --color-ash: #2d2c2a;
+  /* Background hierarchy — GitHub Light white theme */
+  --color-void: #ffffff;
+  --color-void-light: #f6f8fa;
+  --color-charcoal: #f6f8fa;
+  --color-ash: #d0d7de;
 
-  /* Neutral scale */
-  --color-smoke: #4a4845;
-  --color-stone: #7a7672;
-  --color-parchment: #c8c0b8;
-  --color-cream: #e8e0d8;
-  --color-offwhite: #f2ede8;
-  --color-warm-white: #f8f4f0;
+  /* Neutral scale — Pure Black Text */
+  --color-smoke: #555555;
+  --color-stone: #222222;
+  --color-parchment: #111111;
+  --color-cream: #000000;
+  --color-offwhite: #000000;
+  --color-warm-white: #000000;
 
-  /* Accent */
-  --color-earth: #8b6914;
-  --color-rust: #a04030;
-  --color-deep-red: #6b1f1f;
-  --color-muted-blue: #2a3d5c;
+  /* Accent (GitHub Light) */
+  --color-earth: #0969da;
+  --color-rust: #cf222e;
+  --color-deep-red: #a40e26;
+  --color-muted-blue: #0969da;
+
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 
   /* Typography */
+  --font-changa: 'Changa One', cursive, sans-serif;
+  --font-luckiest: 'Luckiest Guy', cursive, sans-serif;
   --font-serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
   /* Spacing rhythm */
-  --space-scene: clamp(80px, 12vw, 160px);
-  --space-section: clamp(48px, 8vw, 100px);
+  --space-scene: clamp(60px, 8vw, 120px);
+  --space-section: clamp(40px, 6vw, 80px);
 
-  /* Transitions */
-  --ease-cinema: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --ease-slow: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-slow: 1200ms;
-  --duration-medium: 600ms;
-  --duration-fast: 300ms;
+  /* Optimized Animation Transitions */
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-slow: 400ms;
+  --duration-medium: 250ms;
+  --duration-fast: 150ms;
+}
+
+html.dark {
+  /* Dark Theme */
+  --color-void: #0a0908;
+  --color-void-light: #111110;
+  --color-charcoal: #161514;
+  --color-ash: #2d2c2a;
+
+  --color-smoke: #8c959f;
+  --color-stone: #b0aaa0;
+  --color-parchment: #e7e5e4;
+  --color-cream: #f5f5f4;
+  --color-offwhite: #ffffff;
+  --color-warm-white: #ffffff;
+
+  /* Accent */
+  --color-earth: #38bdf8;
+  --color-rust: #f87171;
+  --color-deep-red: #ef4444;
+  --color-muted-blue: #60a5fa;
+
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(10, 9, 8, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -61,22 +96,17 @@ html {
 
 body {
   background-color: var(--color-void);
-  color: var(--color-offwhite);
+  color: #000000;
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none; /* custom cursor */
-}
-
-/* Restore cursor on touch devices */
-@media (hover: none) {
-  body { cursor: auto; }
+  cursor: auto;
 }
 
 ::selection {
-  background-color: rgba(139, 105, 20, 0.3);
-  color: var(--color-warm-white);
+  background-color: rgba(9, 105, 218, 0.15);
+  color: var(--color-offwhite);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -111,7 +141,7 @@ blockquote {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-smoke);
+  background: var(--color-ash);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -132,7 +162,8 @@ blockquote {
   height: 200%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.035;
+  opacity: 0.02;
+  mix-blend-mode: multiply;
   animation: grain 0.4s steps(1) infinite;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   background-size: 200px 200px;
@@ -201,10 +232,10 @@ blockquote {
 .cinematic-overlay {
   background: linear-gradient(
     180deg,
-    rgba(10, 9, 8, 0.4) 0%,
-    rgba(10, 9, 8, 0.2) 40%,
-    rgba(10, 9, 8, 0.6) 80%,
-    rgba(10, 9, 8, 0.9) 100%
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.6) 80%,
+    rgba(255, 255, 255, 0.95) 100%
   );
 }
 
@@ -316,49 +347,14 @@ blockquote {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   CUSTOM CURSOR
+   FONTS
 ───────────────────────────────────────────────────────────── */
-.cursor-outer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(242, 237, 232, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transition: width 300ms, height 300ms, border-color 300ms, transform 300ms;
-  transform: translate(-50%, -50%);
+.font-changa {
+  font-family: var(--font-changa);
 }
 
-.cursor-inner {
-  position: fixed;
-  top: 0; left: 0;
-  width: 4px;
-  height: 4px;
-  background: var(--color-offwhite);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10001;
-  transform: translate(-50%, -50%);
-  transition: width 200ms, height 200ms;
-}
-
-.cursor-label {
-  position: fixed;
-  top: 0; left: 0;
-  font-family: var(--font-sans);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-offwhite);
-  pointer-events: none;
-  z-index: 10002;
-  transform: translate(8px, -50%);
-  opacity: 0;
-  transition: opacity 200ms;
-  white-space: nowrap;
+.font-luckiest {
+  font-family: var(--font-luckiest);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -370,7 +366,7 @@ blockquote {
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-parchment);
+  color: var(--color-stone);
   text-decoration: none;
   transition: color 300ms var(--ease-cinema), opacity 300ms;
   position: relative;
@@ -405,7 +401,7 @@ blockquote {
 .scene-divider {
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, transparent, var(--color-smoke), transparent);
+  background: linear-gradient(to bottom, transparent, var(--color-ash), transparent);
   margin: 0 auto;
 }
 
@@ -527,32 +523,33 @@ blockquote {
 .enter-btn {
   font-family: var(--font-sans);
   font-size: 10px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--color-parchment);
-  background: transparent;
-  border: 1px solid rgba(200, 192, 184, 0.3);
+  color: var(--color-offwhite);
+  background: #ffffff;
+  border: 1px solid var(--color-ash);
   padding: 14px 40px;
   cursor: pointer;
-  transition: all 600ms var(--ease-cinema);
+  transition: all 400ms var(--ease-cinema);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(31, 35, 40, 0.05);
 }
 
 .enter-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(242, 237, 232, 0.05);
+  background: var(--color-void-light);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 600ms var(--ease-cinema);
+  transition: transform 400ms var(--ease-cinema);
 }
 
 .enter-btn:hover {
-  color: var(--color-offwhite);
-  border-color: rgba(200, 192, 184, 0.7);
+  color: var(--color-warm-white);
+  border-color: var(--color-stone);
 }
 
 .enter-btn:hover::before {
@@ -611,8 +608,8 @@ blockquote {
 .filter-btn:hover,
 .filter-btn.active {
   color: var(--color-offwhite);
-  border-color: var(--color-smoke);
-  background: rgba(42, 41, 39, 0.5);
+  border-color: var(--color-stone);
+  background: var(--color-void-light);
 }
 
 /* ─────────────────────────────────────────────────────────────
